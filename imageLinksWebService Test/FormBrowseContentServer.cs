@@ -66,7 +66,7 @@ namespace imageLinksWebService_Test
                                 ((Form1)parent).documentManagementClient.GetNode(ref ((Form1)parent).documentManagementAuthentication, node.ID);
 
                             treeNode.Tag = new NodeTarget(node.ID, node.VolumeID, node.Type);
-                            if (node.Type.Equals("SawNodeMediaCollection"))
+                            if (node.DisplayType.Equals("Media Collection"))
                             {
                                 treeNode.ImageIndex = 1;
                                 treeNode.SelectedImageIndex = 1;
