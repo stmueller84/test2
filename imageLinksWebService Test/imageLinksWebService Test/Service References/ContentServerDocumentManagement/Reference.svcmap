@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7f4bdf5b-0f4f-4415-a609-8a1a1c4c4cf2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.0.0.124:8080/les-services/services/DocumentManagement?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DocumentManagement.xsd" MetadataType="Schema" ID="2ae3f667-f5a9-4a02-82ab-3dd7b98bd382" SourceId="1" SourceUrl="http://10.0.0.124:8080/les-services/services/DocumentManagement?xsd=1" />
+    <MetadataFile FileName="DocumentManagement.wsdl" MetadataType="Wsdl" ID="04e96b20-3ef6-44eb-b5c9-47894e178c76" SourceId="1" SourceUrl="http://10.0.0.124:8080/les-services/services/DocumentManagement?wsdl" />
+    <MetadataFile FileName="DocumentManagement1.xsd" MetadataType="Schema" ID="f543f3f9-bd51-4112-a1ee-7b0e0f6bf412" SourceId="1" SourceUrl="http://10.0.0.124:8080/les-services/services/DocumentManagement?xsd=3" />
+    <MetadataFile FileName="DocumentManagement2.xsd" MetadataType="Schema" ID="76a6047c-ebdd-4556-a3ef-644a4cecf555" SourceId="1" SourceUrl="http://10.0.0.124:8080/les-services/services/DocumentManagement?xsd=2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

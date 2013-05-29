@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ecs="urn:api.ecm.opentext.com" xmlns:tns="urn:ImageLinks.service.livelink.opentext.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ImageLinks" targetNamespace="urn:ImageLinks.service.livelink.opentext.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:api.ecm.opentext.com">
+      <xsd:element name="OTAuthentication" type="ecs:OTAuthentication" />
+      <xsd:complexType name="OTAuthentication">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="AuthenticationToken" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=1" namespace="urn:ImageLinks.service.livelink.opentext.com" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=2" namespace="urn:DocMan.service.livelink.opentext.com" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=3" namespace="urn:Core.service.livelink.opentext.com" />
+    </xsd:schema>
+  </types>
+  <message name="AuthenticationMessageHeader">
+    <part name="AuthenticationHeader" element="ecs:OTAuthentication" />
+  </message>
+  <message name="ProcessNodes">
+    <part name="parameters" element="tns:ProcessNodes" />
+  </message>
+  <message name="ProcessNodesResponse">
+    <part name="parameters" element="tns:ProcessNodesResponse" />
+  </message>
+  <message name="ProcessNodesWithUpload">
+    <part name="parameters" element="tns:ProcessNodesWithUpload" />
+  </message>
+  <message name="ProcessNodesWithUploadResponse">
+    <part name="parameters" element="tns:ProcessNodesWithUploadResponse" />
+  </message>
+  <message name="GetNodeExtendedData">
+    <part name="parameters" element="tns:GetNodeExtendedData" />
+  </message>
+  <message name="GetNodeExtendedDataResponse">
+    <part name="parameters" element="tns:GetNodeExtendedDataResponse" />
+  </message>
+  <message name="ResizeOriginal">
+    <part name="parameters" element="tns:ResizeOriginal" />
+  </message>
+  <message name="ResizeOriginalResponse">
+    <part name="parameters" element="tns:ResizeOriginalResponse" />
+  </message>
+  <portType name="ImageLinks">
+    <operation name="ProcessNodes">
+      <input message="tns:ProcessNodes" />
+      <output message="tns:ProcessNodesResponse" />
+    </operation>
+    <operation name="ProcessNodesWithUpload">
+      <input message="tns:ProcessNodesWithUpload" />
+      <output message="tns:ProcessNodesWithUploadResponse" />
+    </operation>
+    <operation name="GetNodeExtendedData">
+      <input message="tns:GetNodeExtendedData" />
+      <output message="tns:GetNodeExtendedDataResponse" />
+    </operation>
+    <operation name="ResizeOriginal">
+      <input message="tns:ResizeOriginal" />
+      <output message="tns:ResizeOriginalResponse" />
+    </operation>
+  </portType>
+  <binding name="BasicHttpBinding_ImageLinksBinding" type="tns:ImageLinks">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ProcessNodes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ProcessNodesWithUpload">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetNodeExtendedData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ResizeOriginal">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:header message="tns:AuthenticationMessageHeader" part="AuthenticationHeader" use="literal" />
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ImageLinks">
+    <port name="BasicHttpBinding_ImageLinks" binding="tns:BasicHttpBinding_ImageLinksBinding">
+      <soap:address location="http://10.0.0.80:8080/ImageLinks/services/ImageLinks" />
+    </port>
+  </service>
+</definitions>

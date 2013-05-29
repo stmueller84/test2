@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ns2="urn:Core.service.livelink.opentext.com" xmlns:tns="urn:ImageLinks.service.livelink.opentext.com" xmlns:ns1="urn:DocMan.service.livelink.opentext.com" elementFormDefault="qualified" targetNamespace="urn:ImageLinks.service.livelink.opentext.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=2" namespace="urn:DocMan.service.livelink.opentext.com" />
+  <xs:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=3" namespace="urn:Core.service.livelink.opentext.com" />
+  <xs:element name="GetNodeExtendedData" type="tns:GetNodeExtendedData" />
+  <xs:element name="GetNodeExtendedDataResponse" type="tns:GetNodeExtendedDataResponse" />
+  <xs:element name="ProcessNodes" type="tns:ProcessNodes" />
+  <xs:element name="ProcessNodesResponse" type="tns:ProcessNodesResponse" />
+  <xs:element name="ProcessNodesWithUpload" type="tns:ProcessNodesWithUpload" />
+  <xs:element name="ProcessNodesWithUploadResponse" type="tns:ProcessNodesWithUploadResponse" />
+  <xs:element name="ResizeOriginal" type="tns:ResizeOriginal" />
+  <xs:element name="ResizeOriginalResponse" type="tns:ResizeOriginalResponse" />
+  <xs:complexType name="GetNodeExtendedData">
+    <xs:sequence>
+      <xs:element name="nodeId" type="xs:int" />
+      <xs:element name="versionNum" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetNodeExtendedDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetNodeExtendedDataResult" type="tns:ImageLinksNodeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ImageLinksNodeData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EXIF" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GPS" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ICC" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IPTC" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" name="Node" type="ns1:Node" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NodeExtendedData" type="tns:ArrayValues" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Key" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodesWithUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inParams" type="tns:ProcessNodesParams" />
+      <xs:element minOccurs="0" name="previewMetadata" type="ns1:Metadata" />
+      <xs:element minOccurs="0" name="thumbnailMetadata" type="ns1:Metadata" />
+      <xs:element minOccurs="0" name="splashMetadata" type="ns1:Metadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodesParams">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ConvertedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EXIF" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GPS" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ICC" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="INFO" type="tns:ArrayValues" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IPTC" type="tns:ArrayValues" />
+          <xs:element name="OriginalNodeId" type="xs:int" />
+          <xs:element minOccurs="0" name="OriginalSize" type="tns:Size" />
+          <xs:element minOccurs="0" name="PreviewSize" type="tns:Size" />
+          <xs:element minOccurs="0" name="SplashSize" nillable="true" type="tns:Size" />
+          <xs:element minOccurs="0" name="ThumbSize" type="tns:Size" />
+          <xs:element minOccurs="0" name="Warning" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Size">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="Height" type="xs:int" />
+          <xs:element name="Width" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodesWithUploadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProcessNodesWithUploadResult" type="tns:ProcessNodesResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodesResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PreviewContext" type="xs:string" />
+          <xs:element name="PreviewId" type="xs:int" />
+          <xs:element minOccurs="0" name="SplashContext" type="xs:string" />
+          <xs:element minOccurs="0" name="SplashId" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ThumbnailContext" nillable="true" type="xs:string" />
+          <xs:element name="ThumbnailId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ResizeOriginal">
+    <xs:sequence>
+      <xs:element name="nodeId" type="xs:int" />
+      <xs:element minOccurs="0" name="originalMetadata" type="ns1:Metadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResizeOriginalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ResizeOriginalResult" type="tns:ResizeOriginalResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResizeOriginalResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns2:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OriginalContext" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inParams" type="tns:ProcessNodesParams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessNodesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProcessNodesResult" type="tns:ProcessNodesResult" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

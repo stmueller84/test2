@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:DocMan.service.livelink.opentext.com" xmlns:ns1="urn:Core.service.livelink.opentext.com" elementFormDefault="qualified" targetNamespace="urn:DocMan.service.livelink.opentext.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.0.0.80:8080/ImageLinks/services/ImageLinks?xsd=3" namespace="urn:Core.service.livelink.opentext.com" />
+  <xs:complexType name="Node">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Catalog" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Comment" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContainerInfo" type="tns:NodeContainerInfo" />
+          <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DisplayType" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Features" type="tns:NodeFeature" />
+          <xs:element name="ID" type="xs:int" />
+          <xs:element name="IsContainer" type="xs:boolean" />
+          <xs:element name="IsReference" type="xs:boolean" />
+          <xs:element name="IsReservable" type="xs:boolean" />
+          <xs:element name="IsVersionable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Metadata" type="tns:Metadata" />
+          <xs:element minOccurs="0" name="ModifyDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="Nickname" nillable="true" type="xs:string" />
+          <xs:element name="ParentID" type="xs:int" />
+          <xs:element name="PartialData" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Permissions" type="tns:NodePermissions" />
+          <xs:element minOccurs="0" name="Position" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceInfo" type="tns:NodeReferenceInfo" />
+          <xs:element name="Released" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReservationInfo" type="tns:NodeReservationInfo" />
+          <xs:element minOccurs="0" name="Type" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionInfo" type="tns:NodeVersionInfo" />
+          <xs:element name="VolumeID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodeContainerInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="ChildCount" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ChildTypes" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodeFeature">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BooleanValue" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DateValue" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IntegerValue" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LongValue" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Metadata">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeGroups" type="tns:AttributeGroup" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AttributeGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DisplayName" type="xs:string" />
+          <xs:element minOccurs="0" name="Key" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Values" type="ns1:DataValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodePermissions">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="AddItemsPermission" type="xs:boolean" />
+          <xs:element name="DeletePermission" type="xs:boolean" />
+          <xs:element name="DeleteVersionsPermission" type="xs:boolean" />
+          <xs:element name="EditAttributesPermission" type="xs:boolean" />
+          <xs:element name="EditPermissionsPermission" type="xs:boolean" />
+          <xs:element name="ModifyPermission" type="xs:boolean" />
+          <xs:element name="ReservePermission" type="xs:boolean" />
+          <xs:element name="SeeContentsPermission" type="xs:boolean" />
+          <xs:element name="SeePermission" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodeReferenceInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="OriginalID" type="xs:int" />
+          <xs:element minOccurs="0" name="OriginalType" type="xs:string" />
+          <xs:element minOccurs="0" name="VersionNum" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodeReservationInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="Reserved" type="xs:boolean" />
+          <xs:element name="ReservedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ReservedDate" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="NodeVersionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element name="AdvancedVersionControl" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FileDataSize" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="FileResSize" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="Major" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="MimeType" type="xs:string" />
+          <xs:element name="SupportsAdvancedVersionControl" type="xs:boolean" />
+          <xs:element name="VersionNum" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Versions" type="tns:Version" />
+          <xs:element minOccurs="0" name="VersionsToKeep" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Version">
+    <xs:complexContent mixed="false">
+      <xs:extension base="ns1:serviceDataObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="CreateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FileCreateDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="FileCreator" type="xs:string" />
+          <xs:element name="FileDataSize" type="xs:long" />
+          <xs:element minOccurs="0" name="FileModifyDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Filename" type="xs:string" />
+          <xs:element name="FilePlatform" type="xs:int" />
+          <xs:element name="FileResSize" type="xs:int" />
+          <xs:element minOccurs="0" name="FileType" type="xs:string" />
+          <xs:element name="ID" type="xs:int" />
+          <xs:element name="Locked" type="xs:int" />
+          <xs:element minOccurs="0" name="LockedBy" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="LockedDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Metadata" type="tns:Metadata" />
+          <xs:element minOccurs="0" name="MimeType" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifyDate" nillable="true" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element name="NodeID" type="xs:int" />
+          <xs:element name="Number" type="xs:int" />
+          <xs:element name="Owner" type="xs:int" />
+          <xs:element name="ProviderID" type="xs:int" />
+          <xs:element minOccurs="0" name="ProviderName" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" type="xs:string" />
+          <xs:element name="VerMajor" type="xs:int" />
+          <xs:element name="VerMinor" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
